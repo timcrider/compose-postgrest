@@ -1,6 +1,13 @@
 #!/bin/bash
 
-psql -U ${POSTGRES_USER} <<-END
+POSTGRES_USER=postgres
+POSTGRES_PASSWORD=postgres
+POSTGRES_DB=postgres
+
+DB_ANON_ROLE=anon
+DB_SCHEMA=public
+
+psql --username postgres --host localhost --port 5432 --password postgres <<-END
     CREATE USER ${DB_ANON_ROLE};
     GRANT USAGE ON SCHEMA ${DB_SCHEMA} TO ${DB_ANON_ROLE};
     ALTER DEFAULT PRIVILEGES IN SCHEMA ${DB_SCHEMA} GRANT SELECT ON TABLES TO ${DB_ANON_ROLE};

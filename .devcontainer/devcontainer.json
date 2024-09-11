@@ -1,0 +1,46 @@
+{
+    //"image": "mcr.microsoft.com/vscode/devcontainers/base:ubuntu",
+    "build": {
+        "dockerfile": "Dockerfile",
+        "context": ".."
+    },
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "pomdtr.excalidraw-editor",
+                "github.copilot",
+                "github.copilot-chat",
+                "dbaeumer.vscode-eslint", // ESLint
+                "esbenp.prettier-vscode", // Prettier code formatter
+                "bierner.color-info", // JSX and CSS color information
+                "jpoissonnier.vscode-styled-components", // Styled components
+                "christian-kohler.npm-intellisense", // Autocompletes npm modules in import statements
+                "ms-azuretools.vscode-docker", // Docker integration and linting
+                "shardulm94.trailing-spaces", // Show trailing spaces
+                "Gruntfuggly.todo-tree", // Highlights TODO comments
+                "vscode-icons-team.vscode-icons", // Better file extension icons
+                "github.vscode-pull-request-github", // Github interaction
+                "aquasecurityofficial.trivy-vulnerability-scanner", // Trivy vulnerability scanner
+//                "ms-kubernetes-tools.vscode-kubernetes-tools", // Kubernetes integration
+                "redhat.ansible", // Ansible integration
+                "rust-lang.rust-analyzer", // Rust language server
+                "ckolkman.vscode-postgres", // Postgres integration
+            ],
+            "settings": {
+                "files.eol": "\n",
+                 "editor.tabSize": 2
+            }
+        }
+    },
+    "features": {
+        "ghcr.io/devcontainers/features/docker-in-docker:2": {"version": "latest"},
+        "ghcr.io/devcontainers/features/git:1": {"version": "latest"},
+        "ghcr.io/devcontainers/features/github-cli:1": {"version": "latest"},
+        "ghcr.io/devcontainers/features/go:1": {"version": "latest"},
+        "ghcr.io/devcontainers/features/python:1": {"version": "os-provided"},
+        "ghcr.io/devcontainers/features/node:1": {"version": "lts"}
+//        "ghcr.io/devcontainers-contrib/features/trivy": {"version": "latest"}
+    },
+    "postCreateCommand": "./.devcontainer/assets/scripts/setup-devcontainer.sh"
+//    "onCreateCommand": "./espy/bin/espy-install.sh"
+}
